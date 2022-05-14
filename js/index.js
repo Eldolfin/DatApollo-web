@@ -89,10 +89,10 @@
         });
 
         var geo = new THREE.CubeGeometry(size, size, size);
-        
+
         var mesh = new THREE.Mesh(geo, mat);
         scene.add(mesh);
-        
+
         return mesh;
     }
 
@@ -110,7 +110,7 @@
         var aspect = window.innerWidth / window.innerHeight;
         var near = 1;
         var far = 65536;
-        
+
         camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
         camera.position.set(0, 0, 800);
 
@@ -124,7 +124,7 @@
         stats = new Stats();
         stats.domElement.style.position = 'absolute';
         stats.domElement.style.bottom = '0px';
-        hud.appendChild(stats.domElement);
+        // hud.appendChild(stats.domElement);
 
         clock = new THREE.Clock();
     }
@@ -141,17 +141,17 @@
         hud.style.display = hud.style.display === 'none' ? 'block' : 'none';
     }
 
-    function onDocumentKeyDown (evt) {
+    function onDocumentKeyDown(evt) {
         switch (evt.keyCode) {
-        case 'H'.charCodeAt(0):
-            toggleHud();
-            break;
-        case 'F'.charCodeAt(0):
-            if (screenfull.enabled) screenfull.toggle();
-            break;
-        case 'P'.charCodeAt(0):
-            window.open(renderer.domElement.toDataURL('image/png'));
-            break;
+            case 'H'.charCodeAt(0):
+                toggleHud();
+                break;
+            case 'F'.charCodeAt(0):
+                if (screenfull.enabled) screenfull.toggle();
+                break;
+            case 'P'.charCodeAt(0):
+                window.open(renderer.domElement.toDataURL('image/png'));
+                break;
         }
     }
 
@@ -168,7 +168,7 @@
         var onProgress = options.onProgress;
         var total = 0;
         var completed = 0;
-        var textures = { };
+        var textures = {};
         var key;
 
         for (key in paths)
@@ -211,8 +211,8 @@
     }
 
     /** When the window loads, we immediately begin loading assets. While the
-        assets loading Three.JS is initialized. When all assets finish loading
-        they can be used to create objects in the scene and animation begins */
+     assets loading Three.JS is initialized. When all assets finish loading
+     they can be used to create objects in the scene and animation begins */
     function onWindowLoaded() {
         loadAssets({
             paths: {
